@@ -1,3 +1,26 @@
 body {
+    padding: 0;
+    margin: auto;
     color: #404040;
+    font-size: 15px;
+    font-family: Georgia, sans-serif, Times, serif;
+    width: 1024px;
+    
 }
+
+.link {
+    color: #A4A400;
+}
+
+.heading {
+    color: #A4A400;
+    background-color: #F0F0F0;
+    font-family: Lucida Sans Unicode, Helvetica, Ar ial, sans-serif;
+    text-align: center;
+    font-size: 29px;
+    text-decoration: underline;}
+    .comment-highlight {
+        background-color: #FFFFA8;
+        font-style: italic;}
+        .copyright {
+            font-family: 'Courier New', Courier, monospace;}
