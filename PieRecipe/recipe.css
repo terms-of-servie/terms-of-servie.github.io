@@ -19,8 +19,19 @@ body {
     text-align: center;
     font-size: 29px;
     text-decoration: underline;}
-    .comment-highlight {
-        background-color: #FFFFA8;
-        font-style: italic;}
-        .copyright {
-            font-family: 'Courier New', Courier, monospace;}
+    
+.comment-highlight {
+    background-color: #FFFFA8;
+    font-style: italic;}
+    .copyright {
+        font-family: 'Courier New', Courier, monospace;}
+
+body {
+padding: 0;
+margin: auto;
+color: #404040;
+font-size: 15px;
+font-family: Georgia, sans-serif, Times, serif;
+width: 1024px;
+background-image: url("https://www.rose-hulman.edu/class/csse/csse290-WebProgramming/images/silverware.jpg");
+}
