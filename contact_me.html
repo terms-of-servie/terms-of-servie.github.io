@@ -4,6 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me</title>
+    <style>
+        *{
+            font-size: 10px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        button {
+            color:white;
+            background: blueviolet;
+            font-size: 24px;
+            padding: 15px; 
+            border: 2px solid white;
+            border-radius: 10px;
+        }
+        body { background: #555;}
+        label {font-weight: bold;}
+        h1 { font-size: 28px;}
+        textarea { min-width: 250px; min-height: 50px; }
+        form { min-width: 550px; margin-bottom: 30px;}
+    </style>
 </head>
 <body>
     <center><h1>Contact Me</h1></center>
@@ -11,13 +30,13 @@
     <form action="#" method="post" id="contactform"
         style="text-align: center;" onsubmit="alert('not implemented yet');">
     <fieldset>
-        <label for="myname">Name:</label> <br/>
+        <label for="myname">Name:<span class="rqd">*</span></label> <br/>
         <input type="text" name="myname" id="myname" required> <br/><br/>
 
-        <label for="myemail">Email:</label> <br/>
+        <label for="myemail">Email:<span class="rqd">*</span></label> <br/>
         <input type="email" name="myemail" id="myemail" required> <br/><br/>
 
-        <label for="subject">subject:</label> <br/>
+        <label for="subject">subject:<span class="rqd">*</span></label> <br/>
         <input type="text" name="subject" id="subject" 
             placeholder="CS 101" required> <br/><br/>
 
@@ -32,6 +51,16 @@
             <option value="high">High</option>
             <option value="crit">Critical</option>
         </select> <br/><br/>
+
+        <label for="attach">Attachments </label> <br/>
+        <input type="file" name="attach" id="attach" multiple> <br/><br/>
+
+        <label for="flwup">Do you want a follow up email?</label> <br/>
+        <input type="radio" name="flwup" id="flwupy" value="yes">
+        <label type="flwupy" class="flwlbl">Yes</label>
+        <input type="radio" name="flwup" id="flwupn" value="no">
+        <label type="flwupn" class="flwlbl">No</label>
+
         <input type="submit" value="submit" id="sbutton">
 
     </fieldset>
