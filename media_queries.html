@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*media query sizes
+        300 - 480px small mobile
+        481 - 768px tablets
+        769 - 1024px small screens laptops
+        1025 - 1200px desktop, large screens
+        1201 and above extra large screens, tv's
+        */
+        nav { overflow: hidden; background: ; #333}
+        nav {
+            float: left;
+            display: block;
+            color: white;
+        }
+        nav a:holder{ background: #ddd; color: black }
+        @media screen and (max-width: 768px) {
+            nav a {float: none; width: 100%; }
+            #device::before {content: 'mobile'; }
+        }
+            
+        body { background: lightgreen;}
+        @media only screen and {orientation: landscape; } {
+            body {background: lightblue;}
+        }
+
+    </style>
+</head>
+<body>
+    <h1>navbar</h1>
+    <P>resizing elemints with the screen width</P>
+    <nav>
+        <a href="#">link</a>
+        <a href="#">link</a>
+        <a href="#">link</a>
+    </nav>
+
+    <h2 id="device">desktop</h2>
+</body>
+</html>
