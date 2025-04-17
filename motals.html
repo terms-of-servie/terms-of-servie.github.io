@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        dialog {
+        opacity: 0.75;
+        background: linear-gradient(
+            45deg, blue, magenta, purple
+        );
+
+    }
+    </style>
+</head>
+<body>
+
+        <Button onclick="document.getElementById('modal').showModal()">Show Dialog</Button>
+        
+        <dialog id="modal">
+        <p>this modal</p>
+        <Button onclick="document.getElementById('modal').close()">Close</Button>
+    </dialog>
+</body>
+</html>
