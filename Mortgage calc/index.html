@@ -32,33 +32,43 @@
         style="text-align: center;">
 
     <div>
-        <label for="myname">Principal: <span class="rqd"></span></label> 
-        <input type="text" id="prin"> </br>
+        <label for="Principal">Principal: <span class="rqd"></span></label> 
+        <input type="number" id="prin"> </br>
 
-        <label for="myname">Interest Rate: <span class="rqd"></span></label> 
-        <input type="text" id="int"> </br>
+        <label for="Interest Rate">Interest Rate: <span class="rqd"></span></label> 
+        <input type="number" id="int"> </br>
 
-        <label for="myname">Number of Years: <span class="rqd"></span></label> 
-        <input type="text" id="num"> </br>
+        <label for="Number of Years">Number of Years: <span class="rqd"></span></label> 
+        <input type="number" id="num"> </br>
 
-        <label for="myname">Monthly Payment: <span class="rqd"></span></label> 
-        <input type="text" id="mon"> </br>
+        <label for="Monthly Payment:">Monthly Payment: <span class="rqd"></span></label> 
+        <input type="number" id="mon"> </br>
     </div>
+    
+        <button onclick=""  >
+        Calculate
+        </button>
 
-
-        <button id="cbutton">Calculate</button>
-        <button>Reset</button>
+        <button>Reset</button> 
 
     </form>
     <script>
+        let prin = document.getElementById('n1').value;
+        let int = document.getElementById('n2').value;
+        let num = document.getElementById('n3').value;
+        let mon = document.getElementById('n4').value;
+        
         let div = int / 12 
-        let u = div + 1 
-        let p = u * prin 
-        let m = u -  1
-        let g = m - div
-        let h = g - p
-        let two = 12 * 2 
+        let ul = div + 1 
+        let two = 12 * num 
+        let fy = ul * two
+        let ph = ul * prin 
+        let mo = fy -  1
+        let gd = mo - div
+        let hr = gd - ph
+
     </script>
+
 
 
 </body>
