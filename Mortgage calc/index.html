@@ -7,17 +7,20 @@
 
     <style>
         form {font-size: 20px;
-            background: gray;
+            background: rgb(255, 255, 255);
+            padding: 10px;
+
         }
 
         button {
             color:white;
-            background: black;
+            background: gray;
             font-size: 20px;
             border-radius: 10px;
         }
         label {font-weight: bold;
-            color: white;
+            color: black;
+            padding: 10\px;
         }
         
         body { background: gray
@@ -45,29 +48,27 @@
         <input type="number" id="mon"> </br>
     </div>
     
-        <button onclick=""  >
-        Calculate
-        </button>
+        <button onclick="
+        let prin = document.getElementById('prin').value;
+        let int = document.getElementById('int').value;
+        let num = document.getElementById('num').value;
+        let mon = document.getElementById('mon').value;
+        
+        let div = int / 12 
+        let u = div + 1 
+        let q = 12 * num
+        let w = prin * q
+        let e = q - 1 
+        let r = e * mon 
+        let t = div / r 
+        let y = e - t
+        document.writeln('Remaining Loan Balance: ' + y);
+    ">Calculate</button>
 
         <button>Reset</button> 
 
     </form>
-    <script>
-        let prin = document.getElementById('n1').value;
-        let int = document.getElementById('n2').value;
-        let num = document.getElementById('n3').value;
-        let mon = document.getElementById('n4').value;
-        
-        let div = int / 12 
-        let ul = div + 1 
-        let two = 12 * num 
-        let fy = ul * two
-        let ph = ul * prin 
-        let mo = fy -  1
-        let gd = mo - div
-        let hr = gd - ph
-
-    </script>
+    
 
 
 
