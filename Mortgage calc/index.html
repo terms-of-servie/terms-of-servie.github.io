@@ -54,14 +54,15 @@
         let num = document.getElementById('num').value;
         let mon = document.getElementById('mon').value;
         
-        let div = int / 12 
+         let div = int / 12 
         let u = div + 1 
         let q = 12 * num
         let w = prin * q
-        let e = q - 1 
+        let e = w - 1 
         let r = e * mon 
         let t = div / r 
-        let y = e - t
+        let y = w - t
+        
         document.writeln('Remaining Loan Balance: ' + y);
     ">Calculate</button>
 
