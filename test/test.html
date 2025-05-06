@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Mortgage calculator</title>
+  <meta name="description" content="Calculate your monthly mortgage payment">
+  <meta name="author" content="Pavel Grinkevich">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <script src="script.js"></script>
+  <div id="wrapper">
+    <main>
+      <h1>Mortgage calculator</h1>
+      <div id="labels">
+        <label for="propertyCost">Property cost:</label>
+        <label for="principal">Principal:</label>
+        <label for="ratePA">P.A., %:</label>
+        <label for="years">Years:</label>
+        <label for="ownResources">Own resources:</label>        
+        <div>Monthly payment:</div>
+        <div>All time payment:</div>
+        <div>Overpayment: </div>
+      </div>
+
+      <div id="inputs">
+        <input type="number" id="propertyCost" min="20000" max="10000000" step="1000" value="250000" 
+                oninput="updateSlider(document.getElementById('ownResources').value)">
+        <input type="number" id="principal" min="500000" max="10000000" step="10000" 
+                oninput="updatePrincipal(this.value)">
+        <input type="number" id="ratePA" value="2" min="0.1" max="100" step="0.05" oninput="updateMonthly()">
+        <input type="number" id="years" value="20" min="5" max="40" step="1" oninput="updateMonthly()">
+        <div class="inputDiv">      
+          <input type="range" id="ownResources" min="0" max="90" value="20" oninput="updateSlider(this.value)">
+          <span id="ownResourcesValue"></span>
+        </div>          
+        <div id="monthly"></div>
+        <div id="allTime"></div>
+        <div id="overPayment"></div>      
+      </div>
+    </main>
+    <footer>
+      <a href="https://elquespera.github.io/"><img src="img/gihub.png" alt="GitHub"></a>
+    </footer>
+  </div>
+  <script>
+    updateSlider(20);
+  </script>
+</body>
+</html>

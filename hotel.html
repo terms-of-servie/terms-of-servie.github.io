@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let hotel = {
+        name: "mama mia",
+        rooms: 50,
+        booked: 30,
+        roomTypes: ['single', 'double', 'suite'],
+        checkAvailiable: Function() {
+            return this.rooms - this.booked;
+        }
+    };
+    document.write(hotel['name'] + "<br>");
+    document.write(hotel.name + "<br>");
+    document.write("available rooms:" + hotel.checkAvailiable() + "<br>");
+
+    
+    
+    
+    function hotelconstructor(name, room, booked) {
+        this.name = name;
+        this.rooms = romms;
+        this.booked = booked;
+        this.checkAvailiable =function() {
+            return this.rooms - this.booked;
+        }
+    }
+    let hotel2 = new hotelconstructor("microtel", 25, 5);
+     document.write(hotel.name + "<br>");
+     document.write("available rooms:" + hotel.checkAvailiable() + "<br>");
+
+     
+     
+     class Hotel {
+        constructor(names, rooms, booked) {
+            this.name = name;
+            this.rooms = romms;
+            this.booked = booked;
+        }
+        checkAvailiable() {
+            return this.rooms - this.booked;
+        }
+     }
+
+     let Hotel3 = new Hotel("super 8", 30, 2);
+    document.write(hotel.name + "<br>");
+    document.write("available rooms:" + hotel.checkAvailiable() + "<br>");
+    </script>
+
+</body>
+</html>
