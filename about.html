@@ -4,8 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
+    <style>
+        body {
+            background-color: #1C211C;
+        }
+    </style>
 </head>
 <body>
-    
+    <button id="color-change" onclick="toggleBackground()" ondblclick="">Change</button>
+    <script>
+        function toggleBackground() {
+            const body = document.body;
+            const current = getComputedStyle(body).backgroundColor;
+            // #1C211C in rgb is rgb(28, 33, 28)
+            if (current === 'rgb(28, 33, 28)') {
+                body.style.backgroundColor = '#78B7FF';
+            } else {
+                body.style.backgroundColor = '#1C211C';
+            }
+        }
+    </script>
+    <h1>About Me</h1>
+    <p>Welcome to my portfolio! I am a passionate web developer with a love for creating beautiful and functional websites. My journey in web development started as a hobby, and it has now become my profession.</p>
 </body>
 </html>
