@@ -6,6 +6,17 @@
     <title>Portfolio</title>
 </head>
 <body>
-    
+    <nav style="position: fixed;top: 0;left: 0;width: 100vw;background: #222;color: #fff;display: flex; justify-content: flex-start; align-items: center;padding: 1em 2em; z-index: 1000;box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <a href="index.html" style="color: #fff; text-decoration: none; margin-right: 2em; font-weight: bold;">Home</a>
+    <a href="projects.html" style="color: #fff; text-decoration: none; margin-right: 2em; font-weight: bold;">Projects</a>
+    <a href="about.html" style="color: #fff; text-decoration: underline; font-weight: bold;">About</a>
+    </nav>
+    <button id="color-change" onclick="toggleBackground()">Change</button>
+    <script>
+        function toggleBackground() {
+            document.body.classList.toggle('light');
+        }
+    </script>
+    <h1>My Projects</h1>
 </body>
 </html>
