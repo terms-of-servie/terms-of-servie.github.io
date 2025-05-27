@@ -6,26 +6,82 @@
     <title>About</title>
     <style>
         body {
-        background-color: #1C211C;
-        color: #fff;
-        transition: background 0.3s, color 0.3s;
-        min-height: 100vh;
-        width: 100vw;  
-        position: sticky;    
-}
+            background-color: #1C211C;
+            color: #fff;
+            transition: background 0.6s, color 0.6s;
+            min-height: 100vh;
+            width: 100vw;
+            margin: 0;
+            box-sizing: border-box;
+            min-height: 100vh;
+            width: 100vw;
+            margin: 0;
+            box-sizing: border-box;
+        }
         body.light {
             background-color: #78B7FF;
             color: #222;
         }
-        h1{
+        .toggle-btn {
+            position: fixed;
+            top: 10px;
+            right: 40px;
+            z-index: 2000;
+            padding: 0.7em 1.5em;
+            font-size: 1em;
+            border-radius: 6px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background: #222;
+            color: #fff;
+            transition: background 0.6s, color 0.6s;
+        }
+        body:not(.light) .toggle-btn {
+            background: #78B7FF;
+            color: #222;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            background: #222;
+            color: #fff;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 1em 2em;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 2em;
+            font-weight: bold;
+        }
+        nav a:last-child {
+            text-decoration: underline;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin-top: 5em;
+        }
+        h1 {
             margin-top: 1.5em;
             margin-bottom: 0.5em;
             font-size: 3.5em;
         }
-         h2, h3, h4, h5, h6 {
+        h2, h3, h4, h5, h6 {
             margin-top: 1.5em;
             margin-bottom: 0.5em;
-         }
+        }
         p {
             font-size: 1.1em;
             line-height: 1.6;
@@ -37,65 +93,49 @@
             border-radius: 8px;
         }
     </style>
+    <script>
+      window.onload = function() {
+        if (localStorage.getItem('theme') === 'light') {
+          document.body.classList.add('light');
+        }
+      }
+      function toggleBackground() {
+        document.body.classList.toggle('light');
+        // Save the current theme
+        if (document.body.classList.contains('light')) {
+          localStorage.setItem('theme', 'light');
+        } else {
+          localStorage.setItem('theme', 'dark');
+        }
+      }
+    </script>
 </head>
-    <body>
-    <nav style="
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    background: #222;
-    color: #fff;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 1em 2em;
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    ">
-        <a href="index.html" style="color: #fff; text-decoration: none; margin-right: 2em; font-weight: bold;">Home</a>
-        <a href="projects.html" style="color: #fff; text-decoration: none; margin-right: 2em; font-weight: bold;">Projects</a>
-        <a href="about.html" style="color: #fff; text-decoration: underline; font-weight: bold;">About</a>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
     </nav>
 
-    <button id="color-change" onclick="toggleBackground()" style="
-        position: fixed;
-        top: 20px;
-        right: 40px;
-        z-index: 2000;
-        padding: 0.7em 1.5em;
-        font-size: 1em;
-        border-radius: 6px;
-        border: none;
-        background: #78B7FF;
-        color: #222;
-        font-weight: bold;
-        cursor: pointer;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    ">Change</button>
-    <script>
-        function toggleBackground() {
-            document.body.classList.toggle('light');
-        }
-    </script>
+    <button class="toggle-btn" onclick="toggleBackground()">Change</button>
 
-    <main style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin-top: 10px;">
+    <main>
         <div style="display: flex; align-items: center; gap: 40px;">
             <h1 style="margin: 0;">About Me</h1>
-            <img src="profile.jpeg" alt="Placeholder Image">
+            <img src="profile.jpeg" alt="Profile Image">
         </div>
-        <p style="text-align: center; max-width: 600px;">Welcome to my portfolio. fsdasdfasdfsadfafsdfasdfadsf<br>asdfasdfadsfadsfadsdaf</p>
+        <p style="text-align: center; max-width: 600px;">I like to code in my free time and work on personal projects.</p>
 
-        <div style="display: flex; align-items: center; gap: 200px;">
-            <h2 style="margin: 0;">wqerfsd</h2>
-            <h2 style="margin: 0;">sadffds</h2>
+        <div style="display: flex; align-items: center; gap: 40px;">
+            <h2 style="margin: 0;">Experience</h2>
+            <h2 style="margin: 0;">Skills</h2>
         </div>
 
-        <div style="display: flex; align-items: center; gap: 200px;">
-            <p style="margin: 0;">fdsafsadfsaer</p>
-            <p style="margin: 0;">sadsdfsadff</p>
+        <div style="display: flex; align-items: center; gap: 40px;">
+            <p style="margin: 0;">HTML, CSS, JavaScript,<br> Python</p>
+            <p style="margin: 0;">React, Node.js</p>
         </div>
-        <img src="imagestest.jpeg" alt="Placeholder Image" style="margin-top: 2em; max-width: 150px; max-height: 150px; border-radius: 8px;">
+        <img src="imagestest.jpeg" alt="Decorative Image" style="margin-top: 2em; max-width: 150px; max-height: 150px; border-radius: 8px;">
     </main>
 </body>
 </html>
