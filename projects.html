@@ -13,10 +13,65 @@
             width: 100vw;
             margin: 0;
             box-sizing: border-box;
+            min-height: 100vh;
+            width: 100vw;
+            margin: 0;
+            box-sizing: border-box;
         }
         body.light {
             background-color: #78B7FF;
             color: #222;
+        }
+        .toggle-btn {
+            position: fixed;
+            top: 10px;
+            right: 40px;
+            z-index: 2000;
+            padding: 0.7em 1.5em;
+            font-size: 1em;
+            border-radius: 6px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background: #222;
+            color: #fff;
+            transition: background 0.6s, color 0.6s;
+        }
+        body:not(.light) .toggle-btn {
+            background: #78B7FF;
+            color: #222;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            background: #222;
+            color: #fff;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 1em 2em;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 2em;
+            font-weight: bold;
+        }
+        nav a:last-child {
+            text-decoration: underline;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin-top: 5em;
         }
         h1 {
             margin-top: 1.5em;
@@ -37,14 +92,6 @@
             height: auto;
             border-radius: 8px;
         }
-        main {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin-top: 5em;
-        }
     </style>
     <script>
       window.onload = function() {
@@ -54,6 +101,7 @@
       }
       function toggleBackground() {
         document.body.classList.toggle('light');
+        // Save the current theme
         if (document.body.classList.contains('light')) {
           localStorage.setItem('theme', 'light');
         } else {
@@ -78,29 +126,15 @@
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     ">
         <a href="index.html" style="color: #fff; text-decoration: none; margin-right: 2em; font-weight: bold;">Home</a>
-        <a href="projects.html" style="color: #fff; text-decoration: underline; margin-right: 2em; font-weight: bold;">Projects</a>
+        <a href="projects.html" style="color: #fff; text-decoration: underline; margin-right: 2em; font-weight: bold;">Projects/Dishes</a>
         <a href="about.html" style="color: #fff; text-decoration: none; font-weight: bold;">About</a>
     </nav>
 
-    <button id="color-change" onclick="toggleBackground()" style="
-        position: fixed;
-        top: 20px;
-        right: 40px;
-        z-index: 2000;
-        padding: 0.7em 1.5em;
-        font-size: 1em;
-        border-radius: 6px;
-        border: none;
-        background: #78B7FF;
-        color: #222;
-        font-weight: bold;
-        cursor: pointer;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    ">Change</button>
+    <button class="toggle-btn" onclick="toggleBackground()">Change</button>
 
     <main>
-        <div style="display: flex; align-items: center; gap: 40px;">
-            <h1 style="margin: 0;">My Projects</h1>
+        <div style="display: flex; align-items: center; gap: 20px;">
+            <h1 style="margin: 0;">Projects/Dishes</h1>
         </div>
         <p style="text-align: center; max-width: 600px;"></p>
 
@@ -113,7 +147,7 @@
             <p style="margin: 0;"></p>
             <p style="margin: 0;"></p>
         </div>
-        <img src="imagestest.jpeg" alt="Decorative Image" style="margin-top: 2em; max-width: 150px; max-height: 150px; border-radius: 8px;">
+        <img src="plates.jpeg" alt="Decorative Image" style="margin-top: 2em; max-width: 150px; max-height: 150px; border-radius: 8px;">
     </main>
 </body>
 </html>
