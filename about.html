@@ -17,6 +17,7 @@
             width: 100vw;
             margin: 0;
             box-sizing: border-box;
+            font-family: Georgia, 'Times New Roman', Times, serif;
         }
         body.light {
             background-color: #78B7FF;
@@ -113,13 +114,14 @@
 <body>
     <nav>
         <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
+        <a href="projects.html">Photos/Dishes</a>
         <a href="about.html">About</a>
     </nav>
 
-    <div style="display: flex; align-items: center; gap: 40px; justify-content: center; margin-top: 5em;">
-        <h1 style="margin: 0;">About Me</h1>
-        <img src="profile.jpeg" alt="Profile Image">
+    <div style="display: flex; align-items: center; gap: 40px; justify-content: center; margin-top: 5em; position: relative;">
+    <img src="2best.jpeg" alt="Decorative Image" style="margin-top: 100px; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 0; max-width: 1000px; max-height: 450px;">
+    <h1 style="margin: 10px; position: relative; z-index: 1;">About Me</h1>
+    <img src="profile.jpeg" alt="Profile Image" style="position: relative; z-index: 1;">
     </div>
 
     <button class="toggle-btn" onclick="toggleBackground()">Change</button>
@@ -136,7 +138,7 @@
             <p style="margin: 0;">Culinary arts</p>
             <p style="margin: 0;">Novice Photography</p>
         </div>
-        <img src="plates.jpeg" alt="Decorative Image" style="margin-top: 2em; max-width: 150px; max-height: 150px; border-radius: 8px;">
+        <img src="mybest.jpeg" alt="Decorative Image" style="margin-top: 2em; max-width: 150px; max-height: 150px; border-radius: 8px;">
     </main>
 </body>
 </html>
