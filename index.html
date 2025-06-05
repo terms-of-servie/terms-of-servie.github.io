@@ -132,15 +132,33 @@
     </nav>
 
     <div style="display: flex; align-items: center; gap: 40px; justify-content: center; margin-top: 5em; position: relative;">
-    <img src="2best.jpeg" alt="Decorative Image" style="margin-top: 40px; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);z-index: 0; max-width: 1000px; max-height: 450px;">
     <h1 style="margin: 0; position: relative; z-index: 1;">Home</h1>
     </div>
 
-    <button class="toggle-btn" onclick="toggleBackground()">Change</button>
+    <button class="toggle-btn" onclick="toggleBackground(); changeCursorCircleColor();">Change</button>
 
     <main>
-        <p style=" text-align: center; max-width: 600px;">Welcome to my portfolio.<br> I like to cook in my free time. and I do some Novice photography.<br>(im not that good a Photography but I enjoy it)</p>
+        <div style="display: flex; align-items: flex-start; justify-content: center; gap: 40px; width: 100%; max-width: 900px; margin: 0 auto;">
+        <div style="flex: 1;">
+            <p style="display: block; text-align: center; max-width: 600px;">
+                Welcome to my portfolio.<br>
+                In my free time, I enjoy playing video games, cooking, and doing photography. Video games are a fun way to relax and challenge myself. I also like cooking 
+                because I can try out new recipes and be creative with different ingredients. Photography is another hobby I really enjoy it helps me see things from new angles and capture 
+                moments that stand out to me.
+            </p>
+        </div>
+        <div style="flex-shrink: 0;">
+            <img src="mybest.jpeg" alt="Decorative Image" style="max-width: 150px; max-height: 999px; border-radius: 8px;">
+        </div>
+    </div>
 
+    <p style="text-align: center; max-width: 600px;">
+        I’m offering cooking and photography services if anyone needs help with either one.
+         I enjoy making food and can cook for small events or help with meal prep.
+         I also do photography and can take pictures for birthdays, special moments, or just for fun. 
+         I really like both cooking and taking photos, and I try my best to make everything look and turn out great. 
+          Let me know if you're interested!
+    </p>
         <div style="display: flex; align-items: center; gap: 40px;">
             <h2 style="margin: 0;"></h2>
             <h2 style="margin: 0;"></h2>
@@ -150,7 +168,79 @@
             <p style="margin: 0;"></p>
             <p style="margin: 0;"></p>
         </div>
-        <img src="mybest.jpeg" alt="Decorative Image" style=" max-width: 150px; max-height: 999px; border-radius: 8px;">
+        <section style="margin-top: 2em; max-width: 400px; width: 100%;">
+      <h2 style="text-align:center;">Contact Me</h2>
+      <form id="contact-form" style="display: flex; flex-direction: column; gap: 1em;">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required style="padding: 0.5em; border-radius: 4px; border: 1px solid #ccc;">
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required style="padding: 0.5em; border-radius: 4px; border: 1px solid #ccc;">
+        
+        <label for="message">What do you need help with?:</label>
+        <textarea id="message" name="message" rows="4" required style="padding: 0.5em; border-radius: 4px; border: 1px solid #ccc;"></textarea>
+        
+        <button type="submit" style="padding: 0.7em 1.5em; border-radius: 6px; border: none; font-weight: bold; background: #78B7FF; color: #222; cursor: pointer;">Send</button>
+      </form>
+      <div id="form-status" style="margin-top: 1em; text-align: center;"></div>
+    </section>
+
+        <div id="cursor-circle" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(120,183,255,0.4);
+  pointer-events: none;
+  z-index: 3000;
+  transform: translate(-50%, -50%);
+  transition: background 0.3s;
+"></div>
+<script>
+  const circle = document.getElementById('cursor-circle');
+  // Restore circle color from localStorage if available
+  window.addEventListener('DOMContentLoaded', () => {
+    const savedColor = localStorage.getItem('cursorCircleColor');
+    if (savedColor) {
+      circle.style.background = savedColor;
+    }
+  });
+
+  document.addEventListener('mousemove', function(e) {
+    circle.style.left = e.clientX + 'px';
+    circle.style.top = e.clientY + 'px';
+  });
+
+  circle.addEventListener('mousedown', () => {
+    circle.style.background = 'rgba(255,200,120,0.5)';
+    saveCursorCircleColor();
+  });
+  circle.addEventListener('mouseup', () => {
+    circle.style.background = getCurrentCircleColor();
+    saveCursorCircleColor();
+  });
+
+  function changeCursorCircleColor() {
+    if (document.body.classList.contains('light')) {
+      circle.style.background = 'rgba(28, 33, 28, 0.4)';
+    } else {
+      circle.style.background = 'rgba(120, 183, 255, 0.4)';
+    }
+    saveCursorCircleColor();
+  }
+
+  function saveCursorCircleColor() {
+    localStorage.setItem('cursorCircleColor', circle.style.background);
+  }
+
+  function getCurrentCircleColor() {
+    return document.body.classList.contains('light')
+      ? 'rgba(28, 33, 28, 0.4)'
+      : 'rgba(120, 183, 255, 0.4)';
+  }
+</script>
     </main>
 </body>
 </html>
