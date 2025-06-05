@@ -131,7 +131,7 @@
         <a href="about.html" style="color: #fff; text-decoration: none; font-weight: bold;">About</a>
     </nav>
 
-    <button class="toggle-btn" onclick="toggleBackground()">Change</button>
+    <button class="toggle-btn" onclick="toggleBackground(); changeCursorCircleColor();">Change</button>
 
     <main>
         <div style="display: flex; align-items: justify-content:; margin-top: 5em; position: relative;">
@@ -141,13 +141,96 @@
 
 
             <div style="display: flex; gap: 100px; flex-direction: column; align-items: center; margin-top: 2em;">
-    <p style="margin-bottom: 1em;">The one on the right is my favorite.</p>
+    <p style="margin-bottom: 1em;">All of these I are mine shot on my iphone 12 mini.<br> (all of them are better on the phone)</p>
     <div style="display: flex; gap: 100px; justify-content: center;">
-        <img src="soso.jpeg" alt="soso" style="max-width: 999px; max-height: 250px; border-radius: 8px;">
-        <img src="2best.jpeg" alt="2best" style="max-width: 999px; max-height: 250px; border-radius: 8px;">
-        <img src="mybest.jpeg" alt="mybest" style="max-width: 999px; max-height: 350px; border-radius: 8px;">
-    </div>
-</div>
+        <div class="photo-gallery" style="
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px;
+        justify-content: center;
+        margin-top: 2em;
+        margin-bottom: 2em;
+        ">
+        <div style="flex: 1 1 350px; max-width: 900px; display: flex; flex-direction: column; align-items: center;">
+            <img src="soso.jpeg" alt="soso" style="width: 100%; max-width: 400px; max-height: 250px; border-radius: 8px; object-fit: cover;">
+            <span style="margin-top: 0.5em;">It is not one of my best <br>but I think it is good.</span>
+        </div>
+        <div style="flex: 1 1 350px; max-width: 400px; display: flex; flex-direction: column; align-items: center;">
+            <img src="2best.jpeg" alt="2best" style="width: 100%; max-width: 600px; max-height: 600px; border-radius: 8px; object-fit: cover;">
+            <span style="margin-top: 0.5em;">It is a really good view you should have been there. <br>(If you are curious it is the smoke mountains)</span>
+        </div>
+        <div style="flex: 1 1 350px; max-width: 450px; display: flex; flex-direction: column; align-items: center;">
+            <img src="mybest.jpeg" alt="mybest" style="width: 100%; max-width: 350px; max-height: 450px; border-radius: 8px; object-fit: cover;">
+            <span style="margin-top: 0.5em;">I am really proud of this one everything is perfect in my opinon.</span>
+        </div>
+        <div style="flex: 1 1 350px; max-width: 450px; display: flex; flex-direction: column; align-items: center;">
+            <img src="cool.jpeg" alt="mybest" style="width: 100%; max-width: 450px; max-height: 300px; border-radius: 8px; object-fit: cover;">
+            <span style="margin-top: 0.5em;">It looks better on the phone gmail is bad.</span>
+        </div>
+        <div style="flex: 1 1 350px; max-width: 450px; display: flex; flex-direction: column; align-items: center;">
+            <img src="wow.jpeg" alt="mybest" style="width: 100%; max-width: 350px; max-height: 250px; border-radius: 8px; object-fit: cover;">
+            <span style="margin-top: 0.5em;">I really like the reflections on the lake I think it looks cool.</span>
+        </div>
 
+</script>
+
+<div id="cursor-circle" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(120,183,255,0.4);
+  pointer-events: none;
+  z-index: 3000;
+  transform: translate(-50%, -50%);
+  transition: background 0.3s;
+"></div>
+
+<script>
+  const circle = document.getElementById('cursor-circle');
+  // Restore circle color from localStorage if available
+  window.addEventListener('DOMContentLoaded', () => {
+    const savedColor = localStorage.getItem('cursorCircleColor');
+    if (savedColor) {
+      circle.style.background = savedColor;
+    }
+  });
+
+  document.addEventListener('mousemove', function(e) {
+    circle.style.left = e.clientX + 'px';
+    circle.style.top = e.clientY + 'px';
+  });
+
+  circle.addEventListener('mousedown', () => {
+    circle.style.background = 'rgba(255,200,120,0.5)';
+    saveCursorCircleColor();
+  });
+  circle.addEventListener('mouseup', () => {
+    circle.style.background = getCurrentCircleColor();
+    saveCursorCircleColor();
+  });
+
+  function changeCursorCircleColor() {
+    if (document.body.classList.contains('light')) {
+      circle.style.background = 'rgba(28, 33, 28, 0.4)';
+    } else {
+      circle.style.background = 'rgba(120, 183, 255, 0.4)';
+    }
+    saveCursorCircleColor();
+  }
+
+  function saveCursorCircleColor() {
+    localStorage.setItem('cursorCircleColor', circle.style.background);
+  }
+
+  function getCurrentCircleColor() {
+    return document.body.classList.contains('light')
+      ? 'rgba(28, 33, 28, 0.4)'
+      : 'rgba(120, 183, 255, 0.4)';
+  }
+</script>
+    </main>
 </body>
 </html>
