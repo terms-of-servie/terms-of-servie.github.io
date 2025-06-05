@@ -119,15 +119,18 @@
     </nav>
 
     <div style="display: flex; align-items: center; gap: 40px; justify-content: center; margin-top: 5em; position: relative;">
-    <img src="2best.jpeg" alt="Decorative Image" style="margin-top: 100px; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 0; max-width: 1000px; max-height: 550px;">
     <h1 style="margin: 10px; position: relative; z-index: 1;">About Me</h1>
     <img src="profile.jpeg" alt="Profile Image" style="position: relative; z-index: 1;">
     </div>
 
-    <button class="toggle-btn" onclick="toggleBackground()">Change</button>
+    <button class="toggle-btn" onclick="toggleBackground(); changeCursorCircleColor();">Change</button>
 
     <main>
-        <p style="text-align: center; max-width: 600px;">I like to cook and do photography in my free time.</p>
+        <p style="text-align: center; max-width: 600px;"> I’m from Wisconsin. I go to Craig High School, and in my free time, I like to cook, take photos, and play golf. Golf is the only sport I play, but
+           I’m really into cooking and photography too—they’re things 
+           I enjoy and spend a lot of time doing.</p>
+
+        <iframe" width="500" height="500"></iframe>
 
         <div style="display: flex; align-items: center; gap: 150px;">
             <h2 style="margin: 0;">Experience</h2>
@@ -138,7 +141,69 @@
             <p style="margin: 0;">Culinary arts</p>
             <p style="margin: 0;">Novice Photography</p>
         </div>
-        <img src="mybest.jpeg" alt="Decorative Image" style="margin-top: em; max-width: 250px; max-height: 250px; border-radius: 8px;">
+        
+        <div style="width: 100%; display: flex; justify-content: center; margin-top: 3em;">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2933.0418127121275!2d-89.00340992526567!3d42.68165661472547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88061a3e96dd9527%3A0x981face0b5ca7cdc!2sJoseph%20A.%20Craig%20High%20School!5e0!3m2!1sen!2sus!4v1741032561146!5m2!1sen!2sus"
+        width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+ <div id="cursor-circle" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(120,183,255,0.4);
+  pointer-events: none;
+  z-index: 3000;
+  transform: translate(-50%, -50%);
+  transition: background 0.3s;
+"></div>
+<script>
+  const circle = document.getElementById('cursor-circle');
+  // Restore circle color from localStorage if available
+  window.addEventListener('DOMContentLoaded', () => {
+    const savedColor = localStorage.getItem('cursorCircleColor');
+    if (savedColor) {
+      circle.style.background = savedColor;
+    }
+  });
+
+  document.addEventListener('mousemove', function(e) {
+    circle.style.left = e.clientX + 'px';
+    circle.style.top = e.clientY + 'px';
+  });
+
+  circle.addEventListener('mousedown', () => {
+    circle.style.background = 'rgba(255,200,120,0.5)';
+    saveCursorCircleColor();
+  });
+  circle.addEventListener('mouseup', () => {
+    circle.style.background = getCurrentCircleColor();
+    saveCursorCircleColor();
+  });
+
+  function changeCursorCircleColor() {
+    if (document.body.classList.contains('light')) {
+      circle.style.background = 'rgba(28, 33, 28, 0.4)';
+    } else {
+      circle.style.background = 'rgba(120, 183, 255, 0.4)';
+    }
+    saveCursorCircleColor();
+  }
+
+  function saveCursorCircleColor() {
+    localStorage.setItem('cursorCircleColor', circle.style.background);
+  }
+
+  function getCurrentCircleColor() {
+    return document.body.classList.contains('light')
+      ? 'rgba(28, 33, 28, 0.4)'
+      : 'rgba(120, 183, 255, 0.4)';
+  }
+</script>
     </main>
 </body>
 </html>
